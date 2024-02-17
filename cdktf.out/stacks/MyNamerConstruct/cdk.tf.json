@@ -1,0 +1,27 @@
+{
+  "//": {
+    "metadata": {
+      "backend": "local",
+      "stackName": "MyNamerConstruct",
+      "version": "0.20.3"
+    },
+    "outputs": {
+    }
+  },
+  "terraform": {
+  },
+  "variable": {
+    "location": [
+      {
+        "description": "The location/region for the resource",
+        "type": "string"
+      }
+    ],
+    "resourceName": [
+      {
+        "description": "The name of the resource",
+        "type": "string"
+      }
+    ]
+  }
+}
