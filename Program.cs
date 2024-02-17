@@ -9,7 +9,7 @@ namespace MyCompany.MyApp
         public static void Main(string[] args)
         {
             App app = new App();
-            new MainStack(app, "terraform-bsinc-tester");
+            //new NamerConstruct(app, "MyNamerConstruct");
             app.Synth();
             Console.WriteLine("App synth complete");
         }
