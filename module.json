@@ -1,0 +1,10 @@
+{
+    "data": {
+      "type": "registry-modules",
+      "attributes": {
+        "name": "cdk-resourcegroup-create-github",
+        "provider": "bsinc",
+        "registry-name": "private"
+      }
+    }
+  }
