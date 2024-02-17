@@ -14,7 +14,7 @@
   "output": {
     "name": [
       {
-        "value": "Test"
+        "value": "${var.resourceName}-RG123213-${var.location}"
       }
     ]
   },

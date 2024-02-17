@@ -20,9 +20,11 @@ public class NamerConstruct : TFModuleStack
                 Description = "The location/region for the resource",
             });
 
+             var resourceGroupName = new Namer(resourceName.StringValue, location.StringValue);
+
         new TFModuleOutput(this, "name", new TerraformOutputConfig
             {
-                Value = "Test"
+                Value = resourceGroupName.Name[nameof(Names.Azure)][nameof(Names.Azure.ResourceGroup)]
             });
     }
 }
