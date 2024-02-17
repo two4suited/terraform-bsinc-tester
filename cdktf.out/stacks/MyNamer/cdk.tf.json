@@ -2,11 +2,11 @@
   "//": {
     "metadata": {
       "backend": "local",
-      "stackName": "MyNamerConstruct",
+      "stackName": "MyNamer",
       "version": "0.20.3"
     },
     "outputs": {
-      "MyNamerConstruct": {
+      "MyNamer": {
         "name": "name"
       }
     }
@@ -30,6 +30,18 @@
     "resourceName": [
       {
         "description": "The name of the resource",
+        "type": "string"
+      }
+    ],
+    "resourcetype": [
+      {
+        "description": "The type of the resource",
+        "type": "string"
+      }
+    ],
+    "service": [
+      {
+        "description": "The name of the service",
         "type": "string"
       }
     ]

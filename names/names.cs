@@ -9,5 +9,6 @@ public static class Names
 public class Azure
 {
     public string ResourceGroup;
+    public string StorageAccount;
    
 }

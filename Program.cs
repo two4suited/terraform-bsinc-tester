@@ -9,7 +9,7 @@ namespace MyCompany.MyApp
         public static void Main(string[] args)
         {
             App app = new App();
-            new NamerConstruct(app, "MyNamerConstruct");
+            new NamerConstruct(app, "MyNamer");
             app.Synth();
             Console.WriteLine("App synth complete");
         }

@@ -1,3 +1,4 @@
+using System.Globalization;
 using Constructs;
 using HashiCorp.Cdktf;
 using HashiCorp.Cdktf.TfModuleStack;
@@ -13,6 +14,18 @@ public class NamerConstruct : TFModuleStack
                 Type = "string",
                 Description = "The name of the resource",
             });
+        
+        var service = new TFModuleVariable(this, "service", new TerraformVariableConfig
+            {
+                Type = "string",
+                Description = "The name of the service",
+            });
+
+        var resourcetype = new TFModuleVariable(this, "resourcetype", new TerraformVariableConfig
+            {
+                Type = "string",
+                Description = "The type of the resource",
+            });
 
         var location = new TFModuleVariable(this, "location", new TerraformVariableConfig
             {
@@ -20,11 +33,28 @@ public class NamerConstruct : TFModuleStack
                 Description = "The location/region for the resource",
             });
 
-             var resourceGroupName = new Namer(resourceName.StringValue, location.StringValue);
+            var localSerivce = "Azure";
+            var localResourceType = "ResourceGroup";
+
+            if(service.StringValue == "Azure")
+            {
+                localSerivce = nameof(Names.Azure);
+            }
+
+            if(resourcetype.StringValue == "ResourceGroup")
+            {
+                localResourceType = nameof(Names.Azure.ResourceGroup);
+            }
+            else if(resourcetype.StringValue == "StorageAccount")
+            {
+                localResourceType = nameof(Names.Azure.StorageAccount);
+            }
+
+             var namer = new Namer(resourceName.StringValue, location.StringValue);
 
         new TFModuleOutput(this, "name", new TerraformOutputConfig
             {
-                Value = resourceGroupName.Name[nameof(Names.Azure)][nameof(Names.Azure.ResourceGroup)]
+                Value = namer.Name[localSerivce][localResourceType]
             });
     }
 }
