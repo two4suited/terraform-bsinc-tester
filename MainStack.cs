@@ -9,7 +9,19 @@ namespace MyCompany.MyApp
     {
         public MainStack(Construct scope, string id) : base(scope, id)
         {
-             var resourceGroupName = new Namer("myapp", "uswest");
+            TerraformVariable resrouceName = new TerraformVariable(this, "resourceName", new TerraformVariableConfig
+            {
+                Type = "string",
+                Description = "The name of the resource",
+            });
+
+            TerraformVariable location = new TerraformVariable(this, "location", new TerraformVariableConfig
+            {
+                Type = "string",
+                Description = "The location/region for the resource",
+            });
+
+             var resourceGroupName = new Namer(resrouceName.StringValue, location.StringValue);
 
             new TerraformOutput(this, "name", new TerraformOutputConfig
             {
