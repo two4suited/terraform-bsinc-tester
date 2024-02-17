@@ -6,7 +6,17 @@
       "version": "0.20.3"
     },
     "outputs": {
+      "MyNamerConstruct": {
+        "name": "name"
+      }
     }
+  },
+  "output": {
+    "name": [
+      {
+        "value": "Test"
+      }
+    ]
   },
   "terraform": {
   },
