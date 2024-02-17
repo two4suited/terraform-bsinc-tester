@@ -19,5 +19,10 @@ public class NamerConstruct : TFModuleStack
                 Type = "string",
                 Description = "The location/region for the resource",
             });
+
+        new TFModuleOutput(this, "name", new TerraformOutputConfig
+            {
+                Value = "Test"
+            });
     }
 }
