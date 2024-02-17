@@ -9,7 +9,12 @@ namespace MyCompany.MyApp
     {
         public MainStack(Construct scope, string id) : base(scope, id)
         {
-            // define resources here
+             var resourceGroupName = new Namer("myapp", "uswest");
+
+            new TerraformOutput(this, "name", new TerraformOutputConfig
+            {
+                Value = resourceGroupName.Name[nameof(Names.Azure)][nameof(Names.Azure.ResourceGroup)]
+            });
         }
     }
 }
